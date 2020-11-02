@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>738460598912-gp464nui0ko24mi18o1e7b4su8ckiefu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.738460598912-gp464nui0ko24mi18o1e7b4su8ckiefu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC4J431Z2MR3u9hwAdCSzWEbekQ0H1oTxA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>738460598912</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.azesm.ziri</string>
+	<key>PROJECT_ID</key>
+	<string>azesm-ziri</string>
+	<key>STORAGE_BUCKET</key>
+	<string>azesm-ziri.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:738460598912:ios:547dbb0981603d2dac9c65</string>
+	<key>DATABASE_URL</key>
+	<string>https://azesm-ziri.firebaseio.com</string>
+</dict>
+</plist>
