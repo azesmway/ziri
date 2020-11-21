@@ -296,6 +296,38 @@ class AppMain extends React.PureComponent {
       name = facebook.user.name
     }
 
+    const data = {
+      labels: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Авг'],
+      datasets: [
+        {
+          data: [60, 65, 68, 70, 75, 83, 80],
+          colors: [(opacity = 1) => 'red', (opacity = 1) => '#ff00ff', (opacity = 1) => `rgba(255, 0, 50, ${opacity})`]
+        }
+      ]
+    }
+
+    const chartConfig = {
+      barPercentage: 0.5,
+      useShadowColorFromDataset: false, // optional
+      backgroundGradientFrom: '#1E2923',
+      backgroundGradientFromOpacity: 0,
+      backgroundGradientTo: '#08130D',
+      backgroundGradientToOpacity: 0.5,
+      decimalPlaces: 2, // optional, defaults to 2dp
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      style: {
+        borderRadius: 16,
+        backgroundColor: 'transparent'
+      },
+      propsForDots: {
+        r: '6',
+        strokeWidth: '2',
+        stroke: '#ffa726'
+      },
+      data: data.datasets
+    }
+
     return (
       <View style={{ flex: 1, backgroundColor: '#0f141c' }}>
         <ImageBackground source={bg} style={{ flex: 1 }} resizeMode={'stretch'}>
@@ -356,37 +388,13 @@ class AppMain extends React.PureComponent {
             >
               <View style={{ marginTop: ThemeUtils.relativeHeight(5), paddingLeft: 10 }}>
                 <BarChart
-                  data={{
-                    labels: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Авг'],
-                    datasets: [
-                      {
-                        data: [60, 65, 68, 70, 75, 83, 80]
-                      }
-                    ]
-                  }}
+                  data={data}
                   width={Dimensions.get('window').width - 20} // from react-native
                   height={200}
                   yAxisLabel="$"
                   yAxisSuffix="k"
                   yAxisInterval={1} // optional, defaults to 1
-                  chartConfig={{
-                    backgroundGradientFrom: '#1E2923',
-                    backgroundGradientFromOpacity: 0,
-                    backgroundGradientTo: '#08130D',
-                    backgroundGradientToOpacity: 0.5,
-                    decimalPlaces: 2, // optional, defaults to 2dp
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    style: {
-                      borderRadius: 16,
-                      backgroundColor: 'transparent'
-                    },
-                    propsForDots: {
-                      r: '6',
-                      strokeWidth: '2',
-                      stroke: '#ffa726'
-                    }
-                  }}
+                  chartConfig={chartConfig}
                   bezier
                   style={{
                     marginVertical: 8,
@@ -424,20 +432,17 @@ class AppMain extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     userData: state.userReducer.userData
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    reduxUser: userData => dispatch(user(userData))
+    reduxUser: (userData) => dispatch(user(userData))
   }
 }
 
 // Exports
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppMain)
+export default connect(mapStateToProps, mapDispatchToProps)(AppMain)

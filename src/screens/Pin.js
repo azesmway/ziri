@@ -39,7 +39,7 @@ class Pin extends PureComponent {
                 {
                   text: 'OK',
                   style: 'destructive',
-                  onPress: password => {
+                  onPress: (password) => {
                     this.props.reduxPin('')
                   }
                 }
@@ -66,7 +66,7 @@ class Pin extends PureComponent {
   //   }
   // }
 
-  setFirstPinCode = async pinCode => {
+  setFirstPinCode = async (pinCode) => {
     let resultRegistration = {}
     this.setState({ pinIn: true })
     const { pin_code } = this.props.userData
@@ -87,7 +87,12 @@ class Pin extends PureComponent {
         await this.props.reduxUser(userData)
         await this.loginUser()
       } else {
-        console.log('resultRegistration', resultRegistration)
+        if (resultRegistration.exception_code === 2) {
+          await this.props.reduxUser(userData)
+          await this.loginUser()
+        } else {
+          console.log('resultRegistration', resultRegistration)
+        }
       }
     } else {
       await this.loginUser()
@@ -113,7 +118,12 @@ class Pin extends PureComponent {
       Storage.setSessionKey(resultLogin.session_key)
       this.props.navigation.replace('App')
     } else {
-      console.log('resultLogin', resultLogin)
+      if (resultLogin.exception_code === 2) {
+        Storage.setSessionKey(resultLogin.session_key)
+        this.props.navigation.replace('App')
+      } else {
+        console.log('resultLogin', resultLogin)
+      }
     }
     this.setState({ pinIn: false })
   }
@@ -137,7 +147,7 @@ class Pin extends PureComponent {
               subtitleError={t('suberror')}
               subtitleChoose={t('subchoose')}
               status={pin_code ? 'enter' : 'choose'}
-              finishProcess={async pinCode => this.setFirstPinCode(pinCode)}
+              finishProcess={async (pinCode) => this.setFirstPinCode(pinCode)}
               colorPassword={'#fff'}
               passwordLength={4}
               numbersButtonOverlayColor={'#fff'}
@@ -168,21 +178,18 @@ class Pin extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     userData: state.userReducer.userData,
     onlineIn: state.onlineReducer.onlineIn
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    reduxUser: userData => dispatch(user(userData))
+    reduxUser: (userData) => dispatch(user(userData))
   }
 }
 
 // Exports
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Pin)
+export default connect(mapStateToProps, mapDispatchToProps)(Pin)

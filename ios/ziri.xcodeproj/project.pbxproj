@@ -36,6 +36,7 @@
 		E7093551B6274A59B09572F2 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6A536FD568C40D79247DC9C /* Zocial.ttf */; };
 		EE2283CACF934878B2DAC22F /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22908B2AC1340C0ABB8CBAE /* MaterialIcons.ttf */; };
 		FAA904DE254FE57700D1C50A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA904DD254FE57700D1C50A /* GoogleService-Info.plist */; };
+		FABCADDB25697492000A3AFC /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FABCADDA2569746E000A3AFC /* libswiftWebKit.tbd */; };
 		FB674DFC08DA4E3389452BA8 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 336FCC100C6C4DBA8C27CBF2 /* Entypo.ttf */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FA403CC0254EC6FC000E8156 /* ziri.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ziri.entitlements; path = ziri/ziri.entitlements; sourceTree = "<group>"; };
 		FAA904DD254FE57700D1C50A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FABCADDA2569746E000A3AFC /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABCADDB25697492000A3AFC /* libswiftWebKit.tbd in Frameworks */,
 				6AC2E47570F3938A684F3E93 /* libPods-ziri.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +170,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FABCADDA2569746E000A3AFC /* libswiftWebKit.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				7F7033F37EC55748E5ECEC1F /* libPods-ziri.a */,
@@ -483,6 +487,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ziri/Pods-ziri-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -504,6 +509,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
@@ -661,11 +667,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ziri/ziri.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = 9BF2ZGE7VD;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ziri/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				MARKETING_VERSION = 1.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -687,10 +698,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ziri/ziri.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = 9BF2ZGE7VD;
 				INFOPLIST_FILE = ziri/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				MARKETING_VERSION = 1.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
